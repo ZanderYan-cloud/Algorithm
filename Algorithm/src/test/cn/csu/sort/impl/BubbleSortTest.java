@@ -1,12 +1,10 @@
-package cn.csu.sort.impl;
+package test.cn.csu.sort.impl;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class InsertionSortTest {
+class BubbleSortTest {
     @BeforeEach
     void setUp() {
     }

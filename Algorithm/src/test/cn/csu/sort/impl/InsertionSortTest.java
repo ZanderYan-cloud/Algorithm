@@ -1,35 +1,22 @@
-package test.cn.csu.sort.impl; 
+package test.cn.csu.sort.impl;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.Before; 
-import org.junit.After; 
 
-/** 
-* InsertionSort Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Dec 14, 2019</pre> 
-* @version 1.0 
-*/ 
-public class InsertionSortTest { 
+import static org.junit.jupiter.api.Assertions.*;
 
-@Before
-public void before() throws Exception { 
-} 
+class InsertionSortTest {
+    @BeforeEach
+    void setUp() {
+    }
 
-@After
-public void after() throws Exception { 
-} 
+    @AfterEach
+    void tearDown() {
+    }
 
-/** 
-* 
-* Method: sort(Comparable[] a) 
-* 
-*/ 
-@Test
-public void testSort() throws Exception { 
-//TODO: Test goes here... 
-} 
+    @Test
+    void sort() {
+    }
 
-
-} 
+}

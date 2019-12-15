@@ -8,7 +8,7 @@ import cn.csu.sort.Sort;
  * @Author: Mr.Wang
  * @Date: $
  */
-public abstract class AbstractSort  implements Sort {
+public abstract class AbstractSort implements Sort {
 
     @Override
     public void exch(Comparable[] a, int i, int j) {
@@ -19,22 +19,27 @@ public abstract class AbstractSort  implements Sort {
 
     @Override
     public boolean compare(Comparable[] a, int i, int j) {
-        if (a[i].compareTo(a[j]) < 0){
+        if (a[i].compareTo(a[j]) < 0) {
             return true;
         }
-        return  false;
-    }
-
-    @Override
-    public boolean isSorted(Comparable[] a) {
         return false;
     }
 
     @Override
+    public boolean isSorted(Comparable[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (compare(a, i, i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
     public boolean rangeCheck(Comparable[] a, int index) {
-        if(index < 0 || index >= a.length){
+        if (index < 0 || index >= a.length) {
             return false;
         }
-        return  true;
+        return true;
     }
 }

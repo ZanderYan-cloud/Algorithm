@@ -8,14 +8,14 @@ import cn.csu.sort.Sort;
  * @Author: Mr.Wang
  * @Date: $
  */
-public class InsertionSort extends AbstractSort implements Sort{
+public class InsertionSort extends AbstractSort implements Sort {
 
     @Override
     public void sort(Comparable[] a) {
         int N = a.length;
         for (int i = 1; i < N; i++) {
-            for (int j = i-1; j>=0&&compare(a,i,j) ; j--) {
-                exch(a,i,j);
+            for (int j = i; j > 0 && compare(a, j, j - 1); j--) {
+                exch(a, j - 1, j);
             }
         }
     }
