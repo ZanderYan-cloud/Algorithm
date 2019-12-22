@@ -13,26 +13,24 @@ class SortTest {
 
     @BeforeEach
     void setUp() {
-        /*
         a = createRandomArray(20);
         assert new InsertionSort().isSorted(a);
         show(a);
-        */
     }
 
     @AfterEach
     void tearDown() {
-        /*
         assert new InsertionSort().isSorted(a);
         show(a);
-        */
     }
 
     private static final String INSERTION_SORT = "insertion";
     private static final String SELECTION_SORT = "selection";
     private static final String MERGE_SORT = "merge";
     private static final String SHELL_SORT = "shell";
+    private static final String SHELL_SORT_Impl = "shellImpl";
     private static final String BUBBLE_SORT = "bubble";
+    private static final String QUIK_SORT = "quik";
     private static final String UPGRADE_INSERTION_SORT = "UgrInsertionSort";
 
 
@@ -40,7 +38,7 @@ class SortTest {
 
     @Test
     void sort() {
-        //sort(a, MERGE_SORT);
+        sort(a, SHELL_SORT_Impl);
     }
 
 
@@ -55,20 +53,19 @@ class SortTest {
         Random random = new Random(1000);
         Comparable[] a = new Comparable[len];
         for (int i = 0; i < len; i++) {
-            a[i] = random.nextInt(230);
+            a[i] = random.nextInt(200);
         }
         return a;
     }
 
 
-    @Test
     void main() {
         for (int i = 0; i < 20; i++) {
             Random random = new Random();
             int N = random.nextInt(2000);
             int T = random.nextInt(100);
-            String alg1 = UPGRADE_INSERTION_SORT;
-            String alg2 = INSERTION_SORT;
+            String alg1 = SELECTION_SORT;
+            String alg2 = BUBBLE_SORT;
             double t1 = time(alg1, N, T);
             double t2 = time(alg2, N, T);
             System.out.println("For " + N + " random doubles," + alg1 + " is " + (t2 / t1) + " faster than " + alg2);
@@ -99,6 +96,10 @@ class SortTest {
             new MergeSort().sort(a);
         } else if (UPGRADE_INSERTION_SORT.equals(algorithm)) {
             new UgrInsertionSort().sort(a);
+        } else if (QUIK_SORT.equals(algorithm)) {
+            new QuikSort().sort(a);
+        } else if (SHELL_SORT_Impl.equals(algorithm)) {
+            new ShellSortImpl().sort(a);
         }
         return timer.elapsedTime();
     }

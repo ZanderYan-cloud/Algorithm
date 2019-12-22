@@ -19,7 +19,8 @@ public class MergeSort extends AbstractSort implements Sort {
 
     @Override
     public void sort(Comparable[] a) {
-        sort(a, 0, a.length);
+        aux = new Comparable[a.length];
+        sort(a, 0, a.length - 1);
     }
 
     /**
@@ -32,10 +33,11 @@ public class MergeSort extends AbstractSort implements Sort {
      */
     private void sort(Comparable[] a, int low, int high) {
         //递归结束条件
-        if (high >= low) {
+        if (high <= low) {
             return;
         }
-        int mid = (low + high) / 2;
+        //int mid = (low + high) / 2;
+        int mid = low + (high - low) / 2;
         sort(a, low, mid);
         sort(a, mid + 1, high);
         merge(a, low, mid, high);
@@ -43,30 +45,28 @@ public class MergeSort extends AbstractSort implements Sort {
 
     /**
      * @Author: Bill
-     * @Description: 对数组a进行归并
+     * @Description: 对数组a[low...mid...high]进行归并
      * @Date: 12/14/2019 8:28 PM
      * @name: merge
      * @param: [a, low, mid,high]
      * @return: void
      */
     private void merge(Comparable[] a, int low, int mid, int high) {
-        aux = new Comparable[high - low + 1];
         //将数组赋值到辅助数组
-        for (int i = low, k = 0; i <= high; i++, k++) {
-            aux[k] = a[i];
+        for (int k = low; k <= high; k++) {
+            aux[k] = a[k];
         }
-
-        int i = low - 1;
-        int j = high + 1;
+        int i = low;
+        int j = mid + 1;
         for (int k = low; k <= high; k++) {
             if (i > mid) {
-                a[k] = aux[--j];
-            } else if (j < mid + 1) {
-                a[k] = aux[++i];
-            } else if (compare(a, i, j)) {
-                a[k] = aux[++i];
+                a[k] = aux[j++];
+            } else if (j > high) {
+                a[k] = aux[i++];
+            } else if (compare(aux, i, j)) {
+                a[k] = aux[i++];
             } else {
-                a[k] = aux[--j];
+                a[k] = aux[j++];
             }
         }
     }
