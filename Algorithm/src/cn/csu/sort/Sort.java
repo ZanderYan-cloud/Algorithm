@@ -3,19 +3,21 @@ package cn.csu.sort;
 /**
  * @author Bill
  */
-public interface Sort{
+public interface Sort<T extends Comparable<? super T>>{
 
 
 
         /**
+        * 对数组a进行排序
         * @Author: Bill
         * @Description: 对数组a进行排序
         * @Date: 12/14/2019 4:04 PM
         * @name:
-        * @param: [a] 待排序的数组
-        * @return: void
+        * @param a
+         *       待排序的数组
+        * @return void
         **/
-        void sort(Comparable[] a);
+        void sort(Comparable<T>[] a);
 
 
         /**
@@ -26,7 +28,7 @@ public interface Sort{
         * @param:
         * @return:void
         **/
-        void exch(Comparable[] a,int i,int j);
+        void exch(T[] a,int i,int j);
 
         /**
         * @Author: Bill
@@ -36,17 +38,17 @@ public interface Sort{
         * @param: [a, i, j]
         * @return: boolean
         */
-        boolean compare(Comparable[] a,int i,int j);
+        boolean compare(T[] a,int i,int j);
 
         /**
         * @Author: Bill
-        * @Description: 结合compare(Comparable[],int,int)检查数组是否有序。若数组已有序则返回true，否则返回false
+        * @Description: 结合compare(T[],int,int)检查数组是否有序。若数组已有序则返回true，否则返回false
         * @Date: 12/14/2019 4:50 PM
         * @name: isSorted
         * @param: [a]
         * @return: boolean
         */
-        boolean  isSorted(Comparable[] a);
+        boolean  isSorted(T[] a);
 
 
         /**
@@ -59,5 +61,5 @@ public interface Sort{
          * @param index
         * @return: boolean
         */
-        boolean rangeCheck(Comparable[] a,int index);
+        boolean rangeCheck(T[] a,int index);
 }

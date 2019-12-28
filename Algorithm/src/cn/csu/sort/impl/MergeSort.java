@@ -63,10 +63,10 @@ public class MergeSort extends AbstractSort implements Sort {
                 a[k] = aux[j++];
             } else if (j > high) {
                 a[k] = aux[i++];
-            } else if (compare(aux, i, j)) {
-                a[k] = aux[i++];
-            } else {
+            } else if (compare(aux, j, i)) {
                 a[k] = aux[j++];
+            } else {
+                a[k] = aux[i++];
             }
         }
     }

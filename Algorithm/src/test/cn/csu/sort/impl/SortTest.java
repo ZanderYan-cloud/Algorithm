@@ -1,4 +1,4 @@
-package cn.csu.sort;
+package test.cn.csu.sort.impl;
 
 import cn.csu.sort.impl.*;
 import cn.csu.util.Stopwatch;
