@@ -8,7 +8,7 @@ import cn.csu.sort.Sort;
  * @Author: Mr.Wang
  * @Date: $
  */
-public abstract class AbstractSort implements Sort {
+public abstract class AbstractSort<T extends Comparable<? super T>> implements Sort {
 
     @Override
     public void exch(Comparable[] a, int i, int j) {

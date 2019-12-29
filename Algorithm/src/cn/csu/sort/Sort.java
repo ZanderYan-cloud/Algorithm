@@ -17,7 +17,7 @@ public interface Sort<T extends Comparable<? super T>>{
          *       待排序的数组
         * @return void
         **/
-        void sort(Comparable<T>[] a);
+        void sort(T[] a);
 
 
         /**

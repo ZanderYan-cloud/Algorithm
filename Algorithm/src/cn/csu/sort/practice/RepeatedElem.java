@@ -30,7 +30,7 @@ public class RepeatedElem<T extends Comparable<? super T>> {
         List<T> list = new ArrayList<>(a.length);
         for (int i = 0; i < a.length - 1; i++) {
             boolean flag = false;
-            while (0 == a[i].compareTo(a[i + 1]) && i < a.length - 1) {
+            while (i < a.length - 1 && 0 == a[i].compareTo(a[i + 1])) {
                 flag = true;
                 i++;
             }
@@ -61,21 +61,45 @@ public class RepeatedElem<T extends Comparable<? super T>> {
      * @param: [a]
      * @return: void
      */
-    public void deleteRepeatedElem(T[] a) {
+    public int deleteRepeatedElem(T[] a) {
         SORT.sort(a);
-        for (int i = 0; i < a.length; i++) {
+        int len = a.length;
+        for (int i = 0; i < len; ) {
             int j = i + 1;
-            while (0 == a[i].compareTo(a[i + 1]) && i < a.length - 1) {
+            //记录是否有相同元素
+            boolean flag = false;
+            //i一直往前移动，直到0 != a[i].compareTo(a[i + 1]
+            while (i < len - 1 && 0 == a[i].compareTo(a[i + 1])) {
+                flag = true;
                 i++;
             }
-            int distance = i + 1 - j;
-            move(a,i+1,distance);
+            if (flag) {
+                //元素往前移动的距离
+                int distance = i + 1 - j;
+                move(a, i + 1, distance, len);
+                //新的数组长度 = 原数组长度 - 元素往前移动的距离
+                len -= distance;
+                //i从开始移动的第一个元素重新开始进行循环
+                i = i + 1 - distance;
+            } else {
+                i++;
+            }
         }
+        return len;
     }
 
-    private void move(T[] a, int start, int distance) {
-        for (int i = start; i < a.length; i++) {
+    /**
+    * @Author: Bill
+    * @Description: 将从start索引开始的元素往前移动distance个距离
+    * @Date: 12/29/2019 3:16 PM
+    * @name: move
+    * @param: [a, start, distance, len]
+    * @return: void
+    */
+    private void move(T[] a, int start, int distance, int len) {
+        for (int i = start; i < len; i++) {
             a[i - distance] = a[i];
         }
     }
+
 }

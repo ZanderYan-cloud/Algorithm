@@ -13,16 +13,17 @@ import org.junit.jupiter.api.Test;
 public class StabilityTest {
 
     /**
-    *   测试排序算法的稳定性
-    *   稳定的排序算法：插入排序    归并排序    冒泡排序
-    *   不稳定的排序算法：快速排序   选择排序    希尔排序
-    * @Author: Bill
-    * @Description: TODO
-    * @Date: 12/28/2019 8:05 PM
-    * @name: test
-    * @param: []
-    * @return: void
-    */
+     * 测试排序算法的稳定性
+     * 稳定的排序算法：插入排序    归并排序    冒泡排序
+     * 不稳定的排序算法：快速排序   选择排序    希尔排序
+     *
+     * @Author: Bill
+     * @Description: TODO
+     * @Date: 12/28/2019 8:05 PM
+     * @name: test
+     * @param: []
+     * @return: void
+     */
     @Test
     void test() {
         Tuple[] tuple = new Tuple[18];
@@ -33,7 +34,7 @@ public class StabilityTest {
         show(tuple);
     }
 
-    void createArray(Tuple[] a) {
+    private void createArray(Tuple[] a) {
         a[0] = new Tuple("Chicago", "09:00:00");
         a[1] = new Tuple("Phoenix", "09:00:03");
         a[2] = new Tuple("Houston", "09:00:13");
