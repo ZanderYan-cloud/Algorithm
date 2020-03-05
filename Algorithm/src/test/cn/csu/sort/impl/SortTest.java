@@ -103,4 +103,16 @@ class SortTest {
         }
         return timer.elapsedTime();
     }
+
+    public static void main(String[] args) {
+        Random random = new Random(1000);
+        for (int i = 0; i < 20; i++) {
+            int lo = random.nextInt(100);
+            int hi = random.nextInt(100);
+            hi = hi > lo ? hi : lo;
+            lo = lo < hi ? lo : hi;
+            System.out.print(lo + (hi - lo) / 2);
+            System.out.println("  " + (hi + lo) / 2);
+        }
+    }
 }
