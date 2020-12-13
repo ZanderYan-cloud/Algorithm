@@ -14,13 +14,13 @@ class SortTest {
     @BeforeEach
     void setUp() {
         a = createRandomArray(20);
-        assert new InsertionSort().isSorted(a);
+        //assert new InsertionSort().isSorted(a);
         show(a);
     }
 
     @AfterEach
     void tearDown() {
-        assert new InsertionSort().isSorted(a);
+        //assert new InsertionSort().isSorted(a);
         show(a);
     }
 
@@ -32,13 +32,14 @@ class SortTest {
     private static final String BUBBLE_SORT = "bubble";
     private static final String QUIK_SORT = "quik";
     private static final String UPGRADE_INSERTION_SORT = "UgrInsertionSort";
+    private static final String MOVE_SORT = "MoveSort";
 
 
     private Comparable[] a;
 
     @Test
     void sort() {
-        sort(a, SHELL_SORT_Impl);
+        sort(a, MOVE_SORT);
     }
 
 
@@ -100,6 +101,8 @@ class SortTest {
             new QuikSort().sort(a);
         } else if (SHELL_SORT_Impl.equals(algorithm)) {
             new ShellSortImpl().sort(a);
+        } else if(MOVE_SORT.equals(algorithm)){
+            new MoveSort().sort(a);
         }
         return timer.elapsedTime();
     }
