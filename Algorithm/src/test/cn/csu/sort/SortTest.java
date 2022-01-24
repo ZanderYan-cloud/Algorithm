@@ -1,4 +1,3 @@
-/*
 package test.cn.csu.sort.impl;
 
 import cn.csu.sort.impl.*;
@@ -119,4 +118,4 @@ class SortTest {
             System.out.println("  " + (hi + lo) / 2);
         }
     }
-}*/
+}
